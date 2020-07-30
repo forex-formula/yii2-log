@@ -180,7 +180,7 @@ class ChangeLogSearch extends ChangeLogSearchBase implements SearchInterface
                     'style' => "text-overflow: ellipsis; white-space: nowrap; overflow:hidden; max-width:84px; padding-left:10px;"
                 ],
                 'readonly' => function ($model, $key, $index) {
-                    return $model->referenceBy->id != Yii::$app->user->getId();
+                    return $model->referenceBy && ($model->referenceBy->id != Yii::$app->user->getId());
                 },
                 'refreshGrid' => false,
             ],
